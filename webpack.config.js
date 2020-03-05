@@ -50,6 +50,7 @@ module.exports = {
     ]
   },
   plugins: [new CleanWebpackPlugin([ASSETS_BUILD_PATH], { verbose: false })],
+  devtool: 'source-map',
   optimization: {
     splitChunks: {
       cacheGroups: {
