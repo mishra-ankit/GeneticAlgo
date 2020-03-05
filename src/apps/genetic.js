@@ -38,19 +38,22 @@ function setup() {
 }
 
 function init() {
-  window.runner = null;
-  // Initialize the game Runner.
-  runner = new Runner('.game', {
-    DINO_COUNT: 10,
-    onReset: handleReset,
-    onCrash: handleCrash,
-    onRunning: handleRunning
-  });
-  // Set runner as a global variable if you need runtime debugging.
-  window.runner = runner;
-  // console.info(runner)
-  // Initialize everything in the game and start the game.
-  runner.init();
+  if (window.runner) {
+    runner.restart();
+  } else {
+    // Initialize the game Runner.
+    runner = new Runner('.game', {
+      DINO_COUNT: 10,
+      onReset: handleReset,
+      onCrash: handleCrash,
+      onRunning: handleRunning
+    });
+    // Set runner as a global variable if you need runtime debugging.
+    window.runner = runner;
+    // console.info(runner)
+    // Initialize everything in the game and start the game.
+    runner.init();
+  }
 }
 
 function handleReset(Dinos) {

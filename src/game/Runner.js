@@ -222,10 +222,10 @@ export default class Runner {
     this.startListening();
     this.update();
 
-    window.addEventListener(
-      Runner.events.RESIZE,
-      this.debounceResize.bind(this)
-    );
+    // window.addEventListener(
+    //   Runner.events.RESIZE,
+    //   this.debounceResize.bind(this)
+    // );
 
     this.restart();
   }
